@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeqForSeriLog", "SeriLogAnd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSVFile", "CSV\CSVFile.csproj", "{05926A21-8F45-4F93-B46D-4C6680F07674}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCBox", "VCBox\VCBox.csproj", "{2AFFCE81-8789-4FF8-B849-4499D76246EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05926A21-8F45-4F93-B46D-4C6680F07674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05926A21-8F45-4F93-B46D-4C6680F07674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05926A21-8F45-4F93-B46D-4C6680F07674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AFFCE81-8789-4FF8-B849-4499D76246EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AFFCE81-8789-4FF8-B849-4499D76246EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AFFCE81-8789-4FF8-B849-4499D76246EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AFFCE81-8789-4FF8-B849-4499D76246EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
