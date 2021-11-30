@@ -3,10 +3,10 @@ using Crestron.SimplSharp;
 using Crestron.SimplSharpPro;
 using Crestron.SimplSharpPro.CrestronThread;
 using Serilog; // For Basic SIMPL# Classes
-// For Basic SIMPL#Pro classes
-// For Threading
-// For System Monitor Access
-// For Generic Device Support
+			   // For Basic SIMPL#Pro classes
+			   // For Threading
+			   // For System Monitor Access
+			   // For Generic Device Support
 
 
 namespace MemoryWatcher.VCBox
@@ -61,25 +61,38 @@ namespace MemoryWatcher.VCBox
 			Log.Logger = new LoggerConfiguration()
 				.MinimumLevel.Debug() //Most sinks get this level and and 
 				.Enrich.FromLogContext() //Takes in the { } stuff
-				.WriteTo.Seq("http://54.153.113.63:5341/", apiKey: "MUrWSQdZlCH3ALTMxsmv").CreateLogger()
-				.ForContext("InstallationFriendlyName", "MemoryWatcher_virtualHost");
+				.WriteTo.Seq("http://54.153.113.63:5341/", apiKey: "iSOd6WceAdgrKzMI60HB").CreateLogger()
+				.ForContext("InstallationFriendlyName", "VirtualMachineMemTracker1");
 		}
 
 		private object threadCallbackFunc(object passedObject)
 		{
+
 			int count = 0;
 			var interval = TimeSpan.FromSeconds(30);
 			//	SystemMonitor.SetUpdateInterval(Convert.ToUInt16(interval.TotalSeconds));
 			while (true)
 			{
-				count++;
-				CrestronConsole.PrintLine($"threadCallbackFunc called for the {count} time");
-				CrestronConsole.PrintLine("");
-				PrintMemoryUsageToConsole();
-				PrintMemoryUsageToSeq();
-				CrestronConsole.PrintLine("***");
-				Thread.Sleep(Convert.ToInt32(interval.TotalMilliseconds));
+				try
+				{
+					count++;
+					CrestronConsole.PrintLine($"threadCallbackFunc called for the {count} time");
+					CrestronConsole.PrintLine("");
+					PrintMemoryUsageToConsole();
+					PrintMemoryUsageToSeq();
+					CrestronConsole.PrintLine("***");
+					Thread.Sleep(Convert.ToInt32(interval.TotalMilliseconds));
+				}
+				catch (Exception ex)
+				{
+					CrestronConsole.PrintLine("Had an exception, ignoring and going again");
+					CrestronConsole.PrintLine(ex.Message);
+				}
 			}
+
+			CrestronConsole.PrintLine("loop exiting");
+
+			return null;
 		}
 
 		private void PrintMemoryUsageToConsole()
