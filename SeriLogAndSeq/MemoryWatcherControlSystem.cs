@@ -60,7 +60,7 @@ namespace MemoryWatcher
 				.MinimumLevel.Debug() //Most sinks get this level and and 
 				.Enrich.FromLogContext() //Takes in the { } stuff
 				.WriteTo.Seq("http://54.153.113.63:5341/", apiKey: "MUrWSQdZlCH3ALTMxsmv").CreateLogger()
-				.ForContext("InstallationFriendlyName", "MemoryWatcherTT");
+				.ForContext("InstallationFriendlyName", "VirtualMachineMemTracker1_fromGitHub");
 		}
 
 		private object threadCallbackFunc(object passedObject)

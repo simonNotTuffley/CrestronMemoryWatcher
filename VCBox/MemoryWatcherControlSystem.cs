@@ -62,7 +62,7 @@ namespace MemoryWatcher.VCBox
 				.MinimumLevel.Debug() //Most sinks get this level and and 
 				.Enrich.FromLogContext() //Takes in the { } stuff
 				.WriteTo.Seq("http://54.153.113.63:5341/", apiKey: "iSOd6WceAdgrKzMI60HB").CreateLogger()
-				.ForContext("InstallationFriendlyName", "VirtualMachineMemTracker1");
+				.ForContext("InstallationFriendlyName", "VirtualMachineMemTracker1_fromGitHub");
 		}
 
 		private object threadCallbackFunc(object passedObject)
